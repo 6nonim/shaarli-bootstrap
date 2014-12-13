@@ -6,9 +6,9 @@
         <div class="navbar-header">
           <a href="?" class="navbar-brand"><img src="images/logo.png#" alt="{$shaarlititle|htmlspecialchars}" title="{$shaarlititle|htmlspecialchars}"/>{$shaarlititle|htmlspecialchars}</a>
 		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<i class="fa fa-chevron-down fa-lg" style="color:#A2DD42" ></i>
+			<i class="fa fa-chevron-down fa-lg" style="color:#03a9f4" ></i>
           </button>
-		{if="isLoggedIn()"}<br><li class="visible-xs">&nbsp;&nbsp;&nbsp;&nbsp;<a href="?do=addlink" style="color:#A2DD42"><b>Add link</b></a></li>{/if}		  
+		{if="isLoggedIn()"}<br><li class="visible-xs">&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn-login" href="?do=addlink" style="color:#03a9f4"><b>Add link</b></a></li>{/if}		  
 		</div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -57,7 +57,7 @@
 			</ul>
 		</li>
 		<li><a href="?do=tools">Tools</a></li>		
-		<li class="hidden-xs"><a href="?do=addlink"><b>Add link</b></a></li>
+		<li class="hidden-xs"><a class="btn-login" href="?do=addlink"><b>Add link</b></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">	
 		<li><a href="?do=logout"><i class="fa fa-sign-out fa-lg" alt="logout" title="logout"></i></a></li>

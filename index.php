@@ -732,8 +732,8 @@ class linkdb implements Iterator, Countable, ArrayAccess
         if (!file_exists($GLOBALS['config']['DATASTORE'])) // Create a dummy database for example.
         {
              $this->links = array();
-             $link = array('title'=>'Shaarli bootstrap by raspidev','url'=>'https://github.com/raspidev/shaarli-bootstrap','description'=>'Welcome to Shaarli Bootstrap ! This is a bookmark. To edit or delete me, you must first login.','private'=>0,'linkdate'=>'20110914_190000','tags'=>'opensource software');
-             $this->links[$link['linkdate']] = $link;
+			 $link = array('title'=>'Shaarli - sebsauvage.net','url'=>'http://sebsauvage.net/wiki/doku.php?id=php:shaarli','description'=>'Welcome to Shaarli ! This is a bookmark. To edit or delete me, you must first login.','private'=>0,'linkdate'=>'20110914_190000','tags'=>'opensource software');
+			 $this->links[$link['linkdate']] = $link;
              $link = array('title'=>'My secret stuff... - Pastebin.com','url'=>'http://pastebin.com/smCEEeSn','description'=>'SShhhh!!  I\'m a private link only YOU can see. You can delete me too.','private'=>1,'linkdate'=>'20110914_074522','tags'=>'secretstuff');
              $this->links[$link['linkdate']] = $link;
              file_put_contents($GLOBALS['config']['DATASTORE'], PHPPREFIX.base64_encode(gzdeflate(serialize($this->links))).PHPSUFFIX); // Write database to disk
@@ -1204,6 +1204,7 @@ function renderPage()
 	
 		
         // Get only links which have a thumbnail.
+        $linkcountpic=0;
         foreach($links as $link)
         {
             $permalink='?'.htmlspecialchars(smallhash($link['linkdate']),ENT_QUOTES);
@@ -1213,11 +1214,11 @@ function renderPage()
                 $link['thumbnail']=$thumb; // Thumbnail HTML code.
                 $link['permalink']=$permalink;
                 $linksToDisplay[]=$link; // Add to array.
-				$linkcountpic++;
+				        $linkcountpic++;
             }
         }
         $PAGE = new pageBuilder;
-		$PAGE->assign('linkcountpic',$linkcountpic);
+		    $PAGE->assign('linkcountpic',$linkcountpic);
         $PAGE->assign('linkcount',count($LINKSDB));
         $PAGE->assign('linksToDisplay',$linksToDisplay);
         $PAGE->renderPage('picwall');
@@ -1249,7 +1250,7 @@ function renderPage()
             }
         }		
 		$PAGE = new pageBuilder;
-		$PAGE->assign('linkcountpic',$linkcountpic);
+		    $PAGE->assign('linkcountpic',$linkcountpic);
         $PAGE->assign('linkcount',count($LINKSDB));
         $PAGE->assign('linksToDisplay',$linksToDisplay);
         $PAGE->renderPage('picwall');
@@ -1290,15 +1291,15 @@ function renderPage()
                 $link['thumbnail']=$thumb; // Thumbnail HTML code.
                 $link['permalink']=$permalink;
                 $linksToDisplay[]=$link; // Add to array.
-				$linkcountpic++;			
+			    $linkcountpic++;			
             }
         }
 		$PAGE = new pageBuilder;
-		$PAGE->assign('linkcountpic',$linkcountpic);
-	    $PAGE->assign('taglistpic',$taglistpic);
+	  $PAGE->assign('linkcountpic',$linkcountpic);
+	  $PAGE->assign('taglistpic',$taglistpic);
 		$PAGE->assign('linkcount',count($LINKSDB));
-        $PAGE->assign('linksToDisplay',$linksToDisplay);
-        $PAGE->renderPage('picwall');
+    $PAGE->assign('linksToDisplay',$linksToDisplay);
+    $PAGE->renderPage('picwall');
         exit;
     }
 
@@ -2041,7 +2042,7 @@ function computeThumbnail($url,$href=false)
         }
         $sign = hash_hmac('sha256', $url, $GLOBALS['salt']); // We use the salt to sign data (it's random, secret, and specific to each installation)
         return array('src'=>indexUrl().'?do=genthumbnail&hmac='.htmlspecialchars($sign).'&url='.urlencode($url),
-                     'href'=>$href,'width'=>'120','style'=>'height:auto;','alt'=>'thumbnail');
+                     'href'=>$href,'width'=>'120', 'style'=>'height:auto;','alt'=>'thumbnail');
     }
 
     // For all other, we try to make a thumbnail of links ending with .jpg/jpeg/png/gif

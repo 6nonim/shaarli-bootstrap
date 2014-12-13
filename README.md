@@ -1,20 +1,22 @@
 shaarli-bootstrap
 =================
 
-thème shaarli (by sebsauvage) bootstrap font-awesome and share link by raspidev
+theme 4 shaarli (by sebsauvage) 
 
+bootstrap,font-awesome and share link by raspidev
 
-# Shaarli modified by Raspidev  
+Change color theme an minor chganges by 6nonim
+
+# Shaarli 
 The personal, minimalist, super-fast, no-database delicious clone.  
 
 You want to share the links you discover ? Shaarli is a minimalist delicious clone you can install on your own website.  
 It is designed to be personal (single-user), fast and handy.  
 
-demo : [http://raspidev.fr.nf/](http://raspidev.fr.nf/)
+demo : [6nonimes.es](http://6nonim.es/)
 
-Code on bitbucket : [https://bitbucket.org/raspidev/shaarli-bootstrap](https://bitbucket.org/raspidev/shaarli-bootstrap)
-
-Code on github : [https://github.com/raspidev/shaarli-bootstrap](https://github.com/raspidev/shaarli-bootstrap)
+Code on github : [https://github.com/6nonim/shaarli-bootstrap)](https://github.com/6nonim/shaarli-bootstrap)
+Original code on github : [https://github.com/raspidev/shaarli-bootstrap](https://github.com/raspidev/shaarli-bootstrap)
 
 Original : [sebsauvage.net](https://github.com/sebsauvage/Shaarli/)
 ### Original features:  
@@ -47,7 +49,7 @@ Original : [sebsauvage.net](https://github.com/sebsauvage/Shaarli/)
  * You will be automatically notified by a discreet popup if a new version is available  
  * Pages are easy to customize (using simple RainTPL templates)  
   
-### More feature add by Raspidev :  
+### More feature add by Raspidev : [Raspidev](https://github.com/raspidev/shaarli-bootstrap)
  * Search by term or tags in picwall  
  * Integration of a Tag cloud 3D [http://www.goat1000.com/tagcanvas.php](http://www.goat1000.com/tagcanvas.php)  
  * Modified to bootstrap [http://getbootstrap.com/](http://getbootstrap.com/)  
@@ -56,20 +58,12 @@ Original : [sebsauvage.net](https://github.com/sebsauvage/Shaarli/)
  * Add link to go to top and go to end  
  * Add share links to twitter, facebook, google + and mail inspired by [http://effingo.be/2013/12/14/ajout-de-boutons-de-partage-social-dans-shaarli/](http://effingo.be/2013/12/14/ajout-de-boutons-de-partage-social-dans-shaarli/)  
 
-### Screenshot :  
+### Adds by 6nonim : [6nonim](https://github.com/6nonim/shaarli-bootstrap)
 
-![http://raspidev.fr.nf/images/screen-home-z.PNG](http://raspidev.fr.nf/images/screen-home-z.PNG)  
-
- * Mobile view:  
-![http://raspidev.fr.nf/images/screen-mobile.PNG](http://raspidev.fr.nf/images/screen-mobile.PNG)  
-
-View other at [http://raspidev.fr.nf/](http://raspidev.fr.nf/)  
-
-### TODO :  
- * optimization of code  
- * translation  
- * more...  
-  
+ * General theme colors changed to blue/grey/white.
+ * Take back thumbnail settings done in shaarli.css (especially to manage float).
+ * Add link displayed as a btn.
+ 
 ------------------------------------------------------------------------------
 
 Requires php 5.1 (php 5.2 required for autocomplete.)

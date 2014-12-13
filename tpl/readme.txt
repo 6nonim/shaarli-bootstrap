@@ -18,6 +18,10 @@ If you want to also add something in the page header (in the dark area), do it h
 <div id="pageheader">{include="page.header"}My menu goes here...</div>
 
 
+
+
+
+
 Example: "Add new link" form:
 -----------------------------------------------------
 <html>

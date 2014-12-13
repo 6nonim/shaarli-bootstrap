@@ -11,9 +11,9 @@
         <div class="navbar-header">
           <a href="?" class="navbar-brand"><img src="images/logo.png#" alt="{$shaarlititle|htmlspecialchars}" title="{$shaarlititle|htmlspecialchars}"/>{$shaarlititle|htmlspecialchars}</a>
 		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<i class="fa fa-chevron-down fa-lg" style="color:#A2DD42" ></i>
+			<i class="fa fa-chevron-down fa-lg" style="color:#03a9f4" ></i>
           </button>
-		{if="isLoggedIn()"}<br><li class="visible-xs">&nbsp;&nbsp;&nbsp;&nbsp;<a href="?do=addlink" style="color:#A2DD42"><b>Add link</b></a></li>{/if}		  
+		{if="isLoggedIn()"}<br><li class="visible-xs">&nbsp;&nbsp;&nbsp;&nbsp;<a href="?do=addlink" style="color:#03a9f4"><b>Add link</b></a></li>{/if}		  
 		</div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -88,14 +88,14 @@
 <center>
 <div class="picwall_container">
         {if="!empty($_GET['searchtermpic'])"}
-            <div id="searchcriteria">{$linkcountpic} results for pic<i>
-			<span class="linksearch" title="Remove search"><i class="fa fa-search fa-lg" style="color:#4BAA74"></i><a href="?removesearchpic={$_GET['searchtermpic']}">{$_GET['searchtermpic']} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
+        <div id="searchcriteria">{$countpics} results for pic<i>
+			<span class="linksearch" title="Remove search"><i class="fa fa-search fa-lg" style="color:#4ec2f7"></i><a href="?removesearchpic={$_GET['searchtermpic']}">{$_GET['searchtermpic']} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
 			</i></div>
         {/if}
         {if="!empty($_GET['searchtagspic'])"}
-            <div id="searchcriteria">{$linkcountpic} results for tags pic<i>
+        <div id="searchcriteria">{$countpics} results for tags pic<i>
 			{loop="taglistpic"}
-                <span class="linktag" title="Remove tag"><i class="fa fa-tag fa-lg" style="color:#4BAA74"></i><a href="?removetagpic={$value}">{$value} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
+                <span class="linktag" title="Remove tag"><i class="fa fa-tag fa-lg" style="color:#4ec2f7"></i><a href="?removetagpic={$value}">{$value} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
 			{/loop}</i></div>
         {/if}	
     {loop="linksToDisplay"}

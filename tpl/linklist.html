@@ -11,13 +11,13 @@
     {else}
         {if="$search_type=='fulltext'"}
             <div id="searchcriteria">{$result_count} results for <i>
-			<span class="linksearch" title="Remove search"><i class="fa fa-search fa-lg" style="color:#4BAA74"></i><a href="?removesearch={$search_crits}">{$search_crits} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
+			<span class="linksearch" title="Remove search"><i class="fa fa-search fa-lg" style="color:#4ec2f7"></i><a href="?removesearch={$search_crits}">{$search_crits} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
 			</i></div>
         {/if}
         {if="$search_type=='tags'"}
             <div id="searchcriteria">{$result_count} results for tags <i>
             {loop="search_crits"}
-                <span class="linktag" title="Remove tag"><i class="fa fa-tag fa-lg" style="color:#4BAA74"></i><a href="?removetag={$value|htmlspecialchars}">{$value|htmlspecialchars} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
+                <span class="linktag" title="Remove tag"><i class="fa fa-tag fa-lg" style="color:#4ec2f7"></i><a href="?removetag={$value|htmlspecialchars}">{$value|htmlspecialchars} <span style="border-left:1px solid #aaa; padding-left:5px; color:#6767A7;">x</span></a></span>
             {/loop}</i></div>
         {/if}
     {/if}
@@ -33,9 +33,11 @@
                         <input type="hidden" name="token" value="{$token}"><input type="hidden" name="delete_link"><input type="image" alt="Delete" src="images/delete_icon.png#" title="Delete" class="button_delete" onClick="return confirmDeleteLink();"></form>
                     </div>
                 {/if}
-				{$value.url|thumbnail}
-                <span class="linktitle"><a href="{$redirector}{$value.url|htmlspecialchars}">{$value.title|htmlspecialchars}</a></span>
-                {if="$value.class=='private'"}<i class="fa fa-key fa-lg" style="color:#80AD48"></i>{/if}
+                    <div class="thumbnail">{$value.url|thumbnail}</div>
+				<span class="linktitle"><a href="{$redirector}{$value.url|htmlspecialchars}">{$value.title|htmlspecialchars}</a></span>
+                
+				{if="$value.class=='private'"}<i class="fa fa-key fa-lg" style="color:#4ec2f7"></i>{/if}
+				<br>
 				<br>
                 {if="$value.description"}<div class="linkdescription"{if condition="$search_type=='permalink'"} style="max-height:none !important;"{/if}>{$value.description}</div>{/if}
                 {if="!$GLOBALS['config']['HIDE_TIMESTAMPS'] || isLoggedIn()"}
@@ -47,16 +49,17 @@
                     {if="empty($GLOBALS['disablejquery'])"}onclick="return false;"{/if} class="qrcode"><img src="images/qrcode.png#" width="13" height="13" title="QR-Code"></a></div> - 
                 <span class="linkurl" title="Short link">{$value.url|htmlspecialchars}</span><br>
 				<span class="linkurl">share : 
-<a target="_blank" title="Twitter" href="https://twitter.com/share?text={$value.title|htmlspecialchars(str_replace('|','-',$value.title));}&url={$scripturl}?{$value.linkdate|smallHash}&via=raspi_dev" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"><i class="fa fa-twitter fa-border fa-lg"></i></a>
-<a target="_blank" title="Facebook" href="https://www.facebook.com/sharer.php?u={$scripturl}?{$value.linkdate|smallHash}&t={$value.title|htmlspecialchars}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"><i class="fa fa-facebook fa-border fa-lg"></i></a>
-<a target="_blank" title="Google +" href="https://plus.google.com/share?url={$scripturl}?{$value.linkdate|smallHash}&hl=fr" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><i class="fa fa-google-plus fa-border fa-lg"></i></a>
-<a target="_blank" title="Email" href="mailto:?subject={$value.title|htmlspecialchars}&body={$scripturl}?{$value.linkdate|smallHash}" rel="nofollow"><i class="fa fa-envelope fa-border fa-lg"></i></a>
+					<a target="_blank" title="Twitter" href="https://twitter.com/share?text={$value.title|htmlspecialchars(str_replace('|','-',$value.title));}&url={$scripturl}?{$value.linkdate|smallHash}&via=" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"><i class="fa fa-twitter fa-border fa-lg"></i></a>
+					<a target="_blank" title="Facebook" href="https://www.facebook.com/sharer.php?u={$scripturl}?{$value.linkdate|smallHash}&t={$value.title|htmlspecialchars}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"><i class="fa fa-facebook fa-border fa-lg"></i></a>
+					<a target="_blank" title="Google +" href="https://plus.google.com/share?url={$scripturl}?{$value.linkdate|smallHash}&hl=fr" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><i class="fa fa-google-plus fa-border fa-lg"></i></a>
+					<a target="_blank" title="Email" href="mailto:?subject={$value.title|htmlspecialchars}&body={$scripturl}?{$value.linkdate|smallHash}" rel="nofollow"><i class="fa fa-envelope fa-border fa-lg"></i></a>
 				</span><br>
                 {if="$value.tags"}
                     <div class="linktaglist">
-                    {loop="value.taglist"}<span class="linktag" title="Add tag"><i class="fa fa-tag fa-lg" style="color:#4BAA74"></i><a href="?addtag={$value|urlencode}">{$value|htmlspecialchars}</a></span> {/loop}
+                    {loop="value.taglist"}<span class="linktag" title="Add tag"><i class="fa fa-tag fa-lg" style="color:#4ec2f7"></i><a href="?addtag={$value|urlencode}">{$value|htmlspecialchars}</a></span> {/loop}
                     </div>
                 {/if}	
+				
             </div>
         </li>
     {/loop}
